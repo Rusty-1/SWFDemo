@@ -12,16 +12,16 @@ if __name__ == '__main__':
 
     while True:
         try:
-            print('Polling for activity task ..')
+            print('Polling for activity task ...')
             task = conn.poll_for_activity_task(domain='SWF-Prototype', taskList={'name': 'PrintConsoleMessageTask'},
-                                            identity='shaun-1')
+                                            identity='merada-1')
+
+            print("***** CONSOLE MESSAGE *****")
 
             conn.respond_activity_task_completed(
                 taskToken=task['taskToken'],
                 result='success'
             )
-
-            print(task)
         except Exception as e:
             print('Exception: ', e)
 
